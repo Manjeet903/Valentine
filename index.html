@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💘</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+h1 { color: #ff4d6d; }
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px;
+}
+#yesBtn { background: #ff4d6d; color: white; }
+#noBtn { background: #ddd; }
+#message { margin-top: 15px; color: #666; }
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 4s linear infinite;
+}
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- background music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>Omeshwari 💖</h1>
+  <p>Will you be my Valentine?</p>
+
+  <button id="yesBtn" onclick="yesClick()">Yes 💘</button>
+  <button id="noBtn" onclick="noClick()">No 😒</button>
+
+  <p id="message"></p>
+</div>
+
+<script>
+let messages = [
+  "Are you sure? 😢",
+  "Think again madam 😏",
+  "My heart is fragile 🥺",
+  "You enjoy pressing no huh 😤",
+  "Emotional damage 💔",
+  "Okay now just click yes 😍"
+];
+
+let index = 0;
+
+function noClick() {
+  const yesBtn = document.getElementById("yesBtn");
+  const msg = document.getElementById("message");
+
+  msg.textContent = messages[index];
+  index = (index + 1) % messages.length;
+
+  let size = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+  yesBtn.style.fontSize = (size * 1.3) + "px";
+}
+
+function yesClick() {
+  window.location.href = "yes.html";
+}
+
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}, 500);
+</script>
+</body>
+</html>
