@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Said Yes 💖</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-align: center;
+}
+h1 { color: #ff4d6d; }
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: fall 3s linear infinite;
+}
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(100vh); }
+}
+
+img {
+  width: 200px;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h1>YAAAAY 💖</h1>
+  <p>You are officially my Valentine, Omeshwari 😍</p>
+  <p>Forever yours 🌹</p>
+
+  <!-- OPTIONAL PHOTO -->
+  <!-- <img src="herphoto.jpg"> -->
+</div>
+
+<script>
+for (let i = 0; i < 80; i++) {
+  let conf = document.createElement("div");
+  conf.className = "confetti";
+  conf.style.left = Math.random() * 100 + "vw";
+  conf.style.background = ["#ff4d6d","#ffd166","#06d6a0","#118ab2"][Math.floor(Math.random()*4)];
+  conf.style.animationDuration = Math.random()*3 + 2 + "s";
+  document.body.appendChild(conf);
+}
+</script>
+
+</body>
+</html>
